@@ -32,7 +32,7 @@ class Wordle {
     }
     return result;
   }
-  
+
   letterRepeatedInGuess(guess, index) {
     let charCountInGuess = [];
     for (let i = 0; i < guess.length; i++) {
@@ -41,6 +41,7 @@ class Wordle {
       }
     }
     let charCountInWordle = [];
+
     for (let i = 0; i < this.word.length; i++) {
       if (this.word[i] === guess[index]) {
         charCountInWordle.push(i);
