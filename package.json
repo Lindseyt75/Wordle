@@ -7,8 +7,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "test": "jest --watch",
-    "start": "node src/index.html --ignore client"
+    "test": "jest --watch"
   },
   "repository": {
     "type": "git",
