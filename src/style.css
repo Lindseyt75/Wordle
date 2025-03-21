@@ -76,12 +76,34 @@ body {
   width: 35px; /* Reduced width for buttons */
   height: 35px; /* Reduced height for buttons */
   font-size: 16px; /* Smaller font size */
+  text-align: center; /* Center text in buttons */
   background-color: #ccc;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   margin: 0 2px; /* Reduced margin between buttons */
 }
+
+#keyboard button:hover {
+  background-color: gray;
+}
+
+#keyboard buttonW {
+  width: 60px; /* Reduced width for buttons */
+  height: 35px; /* Reduced height for buttons */
+  font-size: 16px; /* Smaller font size */
+  text-align: center; /* Center text in buttons */
+  background-color: #ccc;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0 2px; /* Reduced margin between buttons */
+}
+
+#keyboard buttonW:hover {
+  background-color: gray;
+}
+
 
 #keyboard button:active {
   background-color: #bbb;
@@ -98,7 +120,7 @@ body {
 }
 
 #reset-button {
-  margin-top: 15px;
+  margin-top: 75px;
   padding: 8px 16px;
   border-radius: 5px;
   font-size: 18px;
@@ -106,7 +128,7 @@ body {
 }
 
 #reset-button:hover {
-  background-color: #bbb;
+  background-color: #ad2f2f;
 }
 
 /* Button Styling */

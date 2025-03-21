@@ -24,7 +24,7 @@ const Keyboard = ({ handleKeyPress, handleEnter, keyboardColors }) => {
       ))}
       <div className="keyboard-row">
         <button onClick={() => handleKeyPress("Backspace")}>←</button>
-        <button onClick={handleEnter}>Enter</button>
+        <buttonW onClick={handleEnter}>Enter</buttonW>
       </div>
     </div>
   );
