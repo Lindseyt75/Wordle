@@ -1,3 +1,4 @@
+/* General Reset and Layout */
 * {
   margin: 0;
   padding: 0;
@@ -13,89 +14,18 @@ body {
   height: 100vh;
 }
 
+/* Game Container */
 #game {
-  width: 400px;
+  width: 400px; /* Reduced width for a more compact design */
   text-align: center;
 }
 
+/* Board Styling */
 #board {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 10px;
-  margin-bottom: 20px;
-}
-
-#board .cell {
-  width: 50px;
-  height: 50px;
-  background-color: #ddd;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px;
-  font-weight: bold;
-  border-radius: 5px;
-}
-
-#keyboard {
-  display: grid;
-  grid-template-columns: repeat(10, 1fr);
-  gap: 5px;
-}
-
-#keyboard button {
-  width: 40px;
-  height: 40px;
-  font-size: 18px;
-  background-color: #ccc;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-#keyboard button:active {
-  background-color: #bbb;
-}
-
-#keyboard button:disabled {
-  background-color: #ddd;
-}
-
-.keyboard-row {
-  display: flex;
-  justify-content: center;
-}
-
-#message {
-  margin-top: 20px;
-  font-size: 18px;
-  font-weight: bold;
-}
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: Arial, sans-serif;
-  background-color: #b0e0e6; /* Light Blue */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
-#game {
-  width: 500px;
-  text-align: center;
-}
-
-#board {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 10px;
-  margin-bottom: 20px;
+  flex-direction: column; /* Stack rows vertically */
+  gap: 5px; /* Reduced gap between rows */
+  margin-bottom: 10px; /* Reduced margin */
 }
 
 #board .row {
@@ -104,36 +34,53 @@ body {
 }
 
 #board .cell {
-  width: 50px;
-  height: 50px;
+  width: 45px; /* Reduced width for smaller cells */
+  height: 45px; /* Reduced height for smaller cells */
   background-color: #ddd;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 24px;
+  font-size: 20px; /* Smaller text size */
   border-radius: 5px;
   color: black; /* Ensure text is visible in cells */
 }
 
+/* Styling for the different colors of the cells */
+#board .cell.green {
+  background-color: #6aaa64; /* Green */
+  color: white;
+}
+
+#board .cell.yellow {
+  background-color: #c9b458; /* Yellow */
+  color: white;
+}
+
+#board .cell.gray {
+  background-color: #787c7e; /* Gray */
+  color: white;
+}
+
+/* Keyboard Styling */
 #keyboard {
-  margin-top: 20px;
+  margin-top: 15px; /* Reduced top margin */
 }
 
 .keyboard-row {
   display: flex;
   justify-content: center;
-  margin-bottom: 5px;
+  margin-bottom: 3px; /* Reduced bottom margin */
 }
 
 #keyboard button {
-  width: 40px;
-  height: 40px;
-  font-size: 18px;
+  width: 35px; /* Reduced width for buttons */
+  height: 35px; /* Reduced height for buttons */
+  font-size: 16px; /* Smaller font size */
   background-color: #ccc;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  margin: 0 2px;
+  margin: 0 2px; /* Reduced margin between buttons */
 }
 
 #keyboard button:active {
@@ -144,7 +91,25 @@ body {
   background-color: #ddd;
 }
 
+/* Message Styling */
 #message {
-  margin-top: 20px;
+  margin-top: 15px; /* Reduced top margin */
+  font-size: 16px; /* Smaller font size */
+}
+
+/* Button Styling */
+button {
+  border-radius: 5px;
   font-size: 18px;
+  padding: 8px 16px; /* Reduced padding */
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #bbb;
+}
+
+button:disabled {
+  background-color: #ddd;
+  cursor: not-allowed;
 }

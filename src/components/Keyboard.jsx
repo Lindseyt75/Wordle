@@ -1,6 +1,6 @@
 import React from "react";
 
-const Keyboard = ({ onKeyPress, onEnter, keyboardColors }) => {
+const Keyboard = ({ handleKeyPress, handleEnter, keyboardColors }) => {
   const qwertyRows = [
     "QWERTYUIOP".split(""),
     "ASDFGHJKL".split(""),
@@ -15,7 +15,7 @@ const Keyboard = ({ onKeyPress, onEnter, keyboardColors }) => {
             <button
               key={letter}
               style={{ backgroundColor: keyboardColors[letter] || "#ccc" }}
-              onClick={() => onKeyPress(letter)}
+              onClick={() => handleKeyPress(letter)}
             >
               {letter}
             </button>
@@ -23,8 +23,8 @@ const Keyboard = ({ onKeyPress, onEnter, keyboardColors }) => {
         </div>
       ))}
       <div className="keyboard-row">
-        <button onClick={() => onKeyPress("Backspace")}>←</button>
-        <button onClick={onEnter}>Enter</button>
+        <button onClick={() => handleKeyPress("Backspace")}>←</button>
+        <button onClick={handleEnter}>Enter</button>
       </div>
     </div>
   );

@@ -11,25 +11,28 @@ function getRandomWord() {
 
 const WordleGame = () => {
   const [wordleWord] = useState(getRandomWord());
-  const [currentGuess, setCurrentGuess] = useState("");
-  const [attempts, setAttempts] = useState(0);
-  const [message, setMessage] = useState("");
-  const [board, setBoard] = useState(Array(6).fill(Array(5).fill("")));
-  const [keyboardColors, setKeyboardColors] = useState({});
+  const [currentGuess, setCurrentGuess] = useState("");  // Track the current guess
+  const [attempts, setAttempts] = useState(0);  // Track the number of attempts
+  const [board, setBoard] = useState(Array(6).fill(Array(5).fill('')));  // Board to hold guesses
+  const [keyboardColors, setKeyboardColors] = useState({});  // Track keyboard colors
+  const [message, setMessage] = useState("");  // Message for win/loss
 
   const maxAttempts = 6;
 
+  // Handle key presses for input
   const handleKeyPress = (letter) => {
     if (currentGuess.length < 5 && letter !== "Backspace") {
-      setCurrentGuess((prevGuess) => prevGuess + letter);
+      setCurrentGuess((prevGuess) => prevGuess + letter); // Add letter to guess
     } else if (letter === "Backspace") {
-      setCurrentGuess(currentGuess.slice(0, -1));
+      setCurrentGuess(currentGuess.slice(0, -1));  // Remove last letter
     }
   };
 
+  // Handle the Enter key to submit guess
   const handleEnter = () => {
-    if (currentGuess.length !== 5) return;
+    if (currentGuess.length !== 5) return;  // Ignore if guess isn't 5 letters long
 
+    // Validate word
     if (!wordList.includes(currentGuess.toLowerCase())) {
       setMessage("Invalid word! Try again.");
       return;
@@ -41,9 +44,9 @@ const WordleGame = () => {
     // Update the board with the results
     const newBoard = [...board];
     newBoard[attempts] = result.map((color) => {
-      if (color === GREEN) return "green";
-      if (color === YELLOW) return "yellow";
-      return "gray"; // GRAY for incorrect letters
+      if (color === GREEN) return 'green';
+      if (color === YELLOW) return 'yellow';
+      return 'gray'; // GRAY for incorrect letters
     });
     setBoard(newBoard);
 
@@ -72,7 +75,7 @@ const WordleGame = () => {
       }
     }
 
-    setCurrentGuess("");
+    setCurrentGuess("");  // Reset current guess for the next attempt
   };
 
   return (
@@ -84,9 +87,9 @@ const WordleGame = () => {
               <div
                 key={j}
                 className="cell"
-                style={{ backgroundColor: cell }}
+                style={{ backgroundColor: cell ? cell : "#ddd" }}
               >
-                {currentGuess[j] && cell !== "gray" ? currentGuess[j] : ""}
+                {i === attempts ? currentGuess[j] : board[i][j]}
               </div>
             ))}
           </div>
@@ -94,8 +97,8 @@ const WordleGame = () => {
       </div>
 
       <Keyboard
-        onKeyPress={handleKeyPress}
-        onEnter={handleEnter}
+        handleKeyPress={handleKeyPress}
+        handleEnter={handleEnter}
         keyboardColors={keyboardColors}
       />
 
