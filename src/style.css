@@ -7,7 +7,7 @@
 
 body {
   font-family: Arial, sans-serif;
-  background-color: #b0e0e6; /* Light Blue */
+  background-color: rgb(65, 136, 184); /* blue */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -47,7 +47,7 @@ body {
 
 /* Styling for the different colors of the cells */
 #board .cell.green {
-  background-color: #6aaa64; /* Green */
+  background-color: #6ed865; /* Green */
   color: white;
 }
 
@@ -95,6 +95,18 @@ body {
 #message {
   margin-top: 15px; /* Reduced top margin */
   font-size: 16px; /* Smaller font size */
+}
+
+#reset-button {
+  margin-top: 15px;
+  padding: 8px 16px;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+#reset-button:hover {
+  background-color: #bbb;
 }
 
 /* Button Styling */

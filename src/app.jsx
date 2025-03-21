@@ -10,10 +10,11 @@ function getRandomWord() {
 }
 
 const WordleGame = () => {
-  const [wordleWord] = useState(getRandomWord());
+  const [wordleWord, setWordleWord] = useState(getRandomWord());
   const [currentGuess, setCurrentGuess] = useState("");  // Track the current guess
   const [attempts, setAttempts] = useState(0);  // Track the number of attempts
   const [board, setBoard] = useState(Array(6).fill(Array(5).fill('')));  // Board to hold guesses
+  const [resultBoard, setResultBoard] = useState(Array(6).fill(Array(5).fill('')));  // Board to hold results
   const [keyboardColors, setKeyboardColors] = useState({});  // Track keyboard colors
   const [message, setMessage] = useState("");  // Message for win/loss
 
@@ -43,12 +44,12 @@ const WordleGame = () => {
 
     // Update the board with the results
     const newBoard = [...board];
-    newBoard[attempts] = result.map((color) => {
-      if (color === GREEN) return 'green';
-      if (color === YELLOW) return 'yellow';
-      return 'gray'; // GRAY for incorrect letters
-    });
+    newBoard[attempts] = currentGuess.split('');
     setBoard(newBoard);
+
+    const newResultBoard = [...resultBoard];
+    newResultBoard[attempts] = result;
+    setResultBoard(newResultBoard);
 
     // Update the keyboard colors
     setKeyboardColors((prevColors) => {
@@ -78,6 +79,17 @@ const WordleGame = () => {
     setCurrentGuess("");  // Reset current guess for the next attempt
   };
 
+  // Handle reset button click
+  const handleReset = () => {
+    setWordleWord(getRandomWord());
+    setCurrentGuess("");
+    setAttempts(0);
+    setBoard(Array(6).fill(Array(5).fill('')));
+    setResultBoard(Array(6).fill(Array(5).fill('')));
+    setKeyboardColors({});
+    setMessage("");
+  };
+
   return (
     <div id="game">
       <div id="board">
@@ -87,7 +99,11 @@ const WordleGame = () => {
               <div
                 key={j}
                 className="cell"
-                style={{ backgroundColor: cell ? cell : "#ddd" }}
+                style={{
+                  backgroundColor: resultBoard[i] && resultBoard[i][j] === GREEN ? '#6aaa64' : 
+                  resultBoard[i] && resultBoard[i][j] === YELLOW ? '#c9b458' : 
+                  resultBoard[i] && resultBoard[i][j] === GRAY ? '#787c7e' : "#ddd"
+                }}
               >
                 {i === attempts ? currentGuess[j] : board[i][j]}
               </div>
@@ -103,6 +119,7 @@ const WordleGame = () => {
       />
 
       <div id="message">{message}</div>
+      <button id="reset-button" onClick={handleReset}>Reset</button>
     </div>
   );
 };
