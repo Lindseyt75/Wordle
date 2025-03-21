@@ -1,6 +1,6 @@
-const GREEN = "g";
-const YELLOW = "y";
-const BLACK = "b";
+export const GREEN = "g";
+export const YELLOW = "y";
+export const GRAY = "gray"; 
 
 class Wordle {
   word;
@@ -22,12 +22,12 @@ class Wordle {
         result.push(GREEN);
       } else if (this.word.includes(guess[i])) {
         if (this.letterRepeatedInGuess(guess, i)) {
-          result.push(BLACK);
+          result.push(GRAY);
         } else {
           result.push(YELLOW);
         }
       } else {
-        result.push(BLACK);
+        result.push(GRAY);
       }
     }
     return result;
@@ -60,4 +60,4 @@ class Wordle {
   }
 }
 
-module.exports = { Wordle, GREEN, YELLOW, BLACK };
+export default Wordle;

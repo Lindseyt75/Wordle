@@ -1,21 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wordle</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <div id="game">
-    <div id="board">
-      <!-- Game board will be dynamically populated -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wordle</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div id="root"></div> <!-- React will render here -->
+    <script type="module" src="./main.jsx"></script>
+    <div id="game">
+      <div id="board">
+        <!-- Game board will be dynamically populated -->
+      </div>
+      <div id="keyboard">
+        <!-- Keyboard buttons will be dynamically created -->
+      </div>
+      <div id="message"></div>
     </div>
-    <div id="keyboard">
-      <!-- Keyboard buttons will be dynamically created -->
-    </div>
-    <div id="message"></div>
-  </div>
-  <script src="app.js"></script>
-</body>
+  </body>
 </html>

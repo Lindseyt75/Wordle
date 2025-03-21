@@ -3103,5 +3103,5 @@ const fiveLetterWords = [
     "zebra",
     "zones"];
     
-    module.exports = fiveLetterWords;
+    export default fiveLetterWords;
     

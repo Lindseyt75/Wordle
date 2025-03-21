@@ -1,4 +1,4 @@
-const { Wordle, GREEN, YELLOW, BLACK } = require("../classes/Wordle.js");
+const { Wordle, GREEN, YELLOW, GRAY } = require("../classes/Wordle.js");
 
 describe("Wordle", () => {
   it("if guess has a diffirent number of letters than wordle, it should return empty array", () => {
@@ -14,37 +14,37 @@ describe("Wordle", () => {
   it("if first letter is in the right position return green for that position", () => {
     const wordle = new Wordle("alert");
     const result = wordle.checkWord("abbbb");
-    expect(result).toEqual([GREEN, BLACK, BLACK, BLACK, BLACK]);
+    expect(result).toEqual([GREEN, GRAY, GRAY, GRAY, GRAY]);
   });
   it("if last letter in the right position return green for that position", () => {
     const wordle = new Wordle("alerts");
     const result = wordle.checkWord("bbbbbs");
-    expect(result).toEqual([BLACK, BLACK, BLACK, BLACK, BLACK, GREEN]);
+    expect(result).toEqual([GRAY, GRAY, GRAY, GRAY, GRAY, GREEN]);
   });
   it("if letter exist but in the wrong position return yellow", () => {
     const wordle = new Wordle("alert");
     const result = wordle.checkWord("bbabb");
-    expect(result).toEqual([BLACK, BLACK, YELLOW, BLACK, BLACK]);
+    expect(result).toEqual([GRAY, GRAY, YELLOW, GRAY, GRAY]);
   });
-  it("if letter exist only one time on the wordle return the second letter black", () => {
+  it("if letter exist only one time on the wordle return the second letter gray", () => {
     const wordle = new Wordle("alert");
     const result = wordle.checkWord("abbab");
-    expect(result).toEqual([GREEN, BLACK, BLACK, BLACK, BLACK]);
+    expect(result).toEqual([GREEN, GRAY, GRAY, GRAY, GRAY]);
   });
   it("if two of the same letter exist in the wordle and in the guess", () => {
     const wordle = new Wordle("alera");
     const result = wordle.checkWord("abbab");
-    expect(result).toEqual([GREEN, BLACK, BLACK, YELLOW, BLACK]);
+    expect(result).toEqual([GREEN, GRAY, GRAY, YELLOW, GRAY]);
   });
   it("if two of the same letter exist in the guess but only one in the wordle but position doesnt match", () => {
     const wordle = new Wordle("alert");
     const result = wordle.checkWord("babab");
-    expect(result).toEqual([BLACK, YELLOW, BLACK, BLACK, BLACK]);
+    expect(result).toEqual([GRAY, YELLOW, GRAY, GRAY, GRAY]);
   });
-  it("if no letters part of the wordle return all black", () => {
+  it("if no letters part of the wordle return all gray", () => {
     const wordle = new Wordle("alert");
     const result = wordle.checkWord("bbbbb");
-    expect(result).toEqual([BLACK, BLACK, BLACK, BLACK, BLACK]);
+    expect(result).toEqual([GRAY, GRAY, GRAY, GRAY, GRAY]);
   });
   describe("letterRepeatedInGuess", () => {
     it("guess word has no repeated letters", () => {
