@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "src/app.js",
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "test": "jest",
+    "test": "jest --watch",
     "start": "node src/index.html --ignore client"
   },
   "repository": {
@@ -20,15 +21,20 @@
   },
   "homepage": "https://github.com/Lindseyt75/Wordle#readme",
   "dependencies": {
+    "babel": "^5.8.38",
     "express": "^4.21.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.26.10",
+    "@babel/preset-env": "^7.26.9",
+    "@babel/preset-react": "^7.26.3",
     "@types/jest": "^29.5.14",
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",
     "@vitejs/plugin-react": "^4.3.4",
+    "babel-jest": "^29.7.0",
     "eslint": "^9.22.0",
     "eslint-plugin-react": "^7.37.2",
     "eslint-plugin-react-hooks": "^5.0.0",
