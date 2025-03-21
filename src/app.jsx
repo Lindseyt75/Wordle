@@ -92,6 +92,7 @@ const WordleGame = () => {
 
   return (
     <div id="game">
+      <h1 id="title">𝑾𝒐𝒓𝒅𝒍𝒆</h1> {/* Title/Header added */}
       <div id="board">
         {board.map((row, i) => (
           <div key={i} className="row">

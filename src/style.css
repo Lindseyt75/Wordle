@@ -20,6 +20,15 @@ body {
   text-align: center;
 }
 
+#title {
+  font-family: 'Arial', sans-serif; /* Default sans-serif for fallback */
+  font-size: 36px;  /* Adjust the font size */
+  font-weight: bold;
+  font-style: italic;  /* Make the text italic */
+  color: rgb(111, 230, 111);  /* Color for the title */
+  margin-bottom: 15px;  /* Space between title and board */
+}
+
 /* Board Styling */
 #board {
   display: flex;
