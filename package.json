@@ -8,7 +8,7 @@
     "dev": "vite",
     "build": "vite build",
     "build:prod": "env-cmd -f .env.production react-scripts build",
-    "start": "vite",
+    "start": "env-cmd -f .env.production react-scripts start",
     "test": "jest --watch"
   },
   "repository": {
