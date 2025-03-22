@@ -31,3 +31,4 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ![Screenshot of the application](image.png)
 
 # Deployed Link
+https://main.d3vyjemcne8aks.amplifyapp.com/
