@@ -3,14 +3,12 @@ frontend:
   phases:
     preBuild:
       commands:
-        - npm install env-cmd
-        - npm ci
+        - npm install
     build:
       commands:
-        - echo "I am running on $BUILD_ENV"
-        - npm run build:$BUILD_ENV
+        - npm run build
   artifacts:
-    baseDirectory: dist
+    baseDirectory: dist  
     files:
       - '**/*'
   cache:
