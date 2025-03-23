@@ -20,6 +20,10 @@
     "typescript": "^5.8.2"
   },
   "dependencies": {
+    "babel": "^5.8.38",
+    "express": "^4.21.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "aws-amplify": "^6.13.6"
   }
 }
